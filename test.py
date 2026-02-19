@@ -1,0 +1,10 @@
+import configparser
+config = configparser.ConfigParser()
+config.read("config.ini", encoding="utf-8")
+print("正在读取 config.ini ...")
+print("所有选项：", config.sections())
+print("Default 节下的所有选项：", config.options("Default"))
+config.add_section("aaa")
+config.set("aaa", "k1", "v1")
+print("所有选项：", config.sections())
+config.write(open("config.ini", "w"))
